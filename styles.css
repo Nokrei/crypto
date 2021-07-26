@@ -1,0 +1,268 @@
+body {
+  background-color: #e5f2fe;
+  font-family: "Poppins", sans-serif;
+}
+.container {
+  background-color: #202020;
+  border-radius: 50px;
+  margin-top: 137px;
+  margin-bottom: 137px;
+  padding: 17px 19px 11px 0;
+  max-width: 1439px;
+}
+.sidebar {
+  padding: 23px 0 75px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.sidebar div {
+  background-color: #f6f0d8;
+  padding: 22px 20px;
+  border-radius: 23px;
+  margin-bottom: 132px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li:not(:last-of-type) {
+  padding-bottom: 61px;
+}
+.sidebar span {
+  padding-top: 208px;
+}
+.sidebar .fas,
+.sidebar .far {
+  color: #a3a3a3;
+  font-size: 24px;
+}
+.main {
+  background: #ffffff;
+  border-radius: 45px;
+  padding: 26px 60px 30px 68px;
+}
+.main h1 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 35px;
+  line-height: 52px;
+  letter-spacing: 0.02em;
+}
+.main .fas:not(:last-of-type),
+.main .far {
+  color: #020b2a;
+  font-size: 20px;
+  padding: 14px;
+  background: #f2f5fa;
+  border-radius: 100%;
+  margin-right: 16px;
+}
+.main span {
+  display: flex;
+  align-items: center;
+}
+.user {
+  background: #f2f5fa;
+  border-radius: 27px;
+  position: relative;
+  padding: 14px 21px 14px 64px;
+}
+.user img {
+  position: absolute;
+  left: 4px;
+  bottom: 10px;
+}
+.user span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+  letter-spacing: 0.02em;
+  color: #0b1432;
+  padding-left: 6px;
+}
+.user .fas {
+  padding-left: 8px;
+}
+.main-top {
+  margin-bottom: 37px;
+}
+.portfolio h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 27.5px;
+  line-height: 41px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  padding-bottom: 24px;
+}
+.asset {
+  padding-bottom: 16px;
+}
+.asset h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+.cards h2 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25.5px;
+  line-height: 38px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+.cards .fa-sliders-h {
+  padding-bottom: 6px;
+  font-size: 20px;
+}
+.card {
+  max-width: 194px;
+  padding: 30px 24px 26px 24px;
+  border-radius: 24px;
+}
+.purple {
+  background: #e5def0;
+}
+.blue {
+  background: #d6edda;
+}
+.pink {
+  background: #f6f0d8;
+}
+.card-top span:first-of-type {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+  /* identical to box height */
+
+  letter-spacing: 0.02em;
+
+  color: #000000;
+}
+.card-top span:last-of-type {
+  color: #a09ba8;
+}
+.card p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #000000;
+  padding-top: 5px;
+  padding-bottom: 67px;
+  margin: 0;
+}
+.card-bottom {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #896ab9;
+}
+.crypto-img-wrap {
+  padding: 10px 14px;
+  background: #ffffff;
+  border-radius: 14px;
+}
+.content-bottom {
+  padding-top: 59px;
+}
+.free {
+  background: #222222;
+  border-radius: 30px;
+  padding: 34px 41px 67px 35px;
+}
+.free h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 45px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0;
+  padding-bottom: 11px;
+}
+.free p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+.free button {
+  background: #bcdfff;
+  border-radius: 23px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  padding: 10px 30px;
+  margin-top: 35px;
+}
+.market h2,
+h4,
+h6,
+p {
+  margin: 0;
+}
+.market-info h2 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 37px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+.market-info p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #020b2a;
+  margin: 0;
+}
+.market-head p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.02em;
+  color: #8290a0;
+}
+.market-head {
+  padding-top: 29px;
+}
+.market-row,
+.market-head {
+  padding-bottom: 20px;
+}
+.market-row-name h6 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.02em;
+  color: #000000;
+}
+.market-row-name p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.02em;
+  color: #7a899a;
+}
