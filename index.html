@@ -25,6 +25,12 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"
+      integrity="sha512-asxKqQghC1oBShyhiBwA+YgotaSYKxGP1rcSYTDrB0U6DxwlJjU59B67U8+5/++uFjcuVM8Hh5cokLjZlhm3Vg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <link rel="stylesheet" href="./styles.css" />
     <title>Document</title>
   </head>
@@ -59,13 +65,13 @@
             </span>
           </div>
           <div class="row cards">
-            <div class="col-5 portfolio">
+            <div class="col-12 col-xl-5 portfolio">
               <h2>Portfolio</h2>
               <div class="chart">
-                <img src="./assets/Rectangle.png" />
+                <canvas id="myChart" width="auto" height="auto"></canvas>
               </div>
             </div>
-            <div class="col-7">
+            <div class="col-12 col-xl-7">
               <div class="row justify-content-between asset">
                 <span class="col-auto">
                   <h2>Your Assets</h2>
@@ -76,7 +82,7 @@
               </div>
 
               <div class="row">
-                <div class="col-4">
+                <div class="col-12 col-md-4 d-flex justify-content-center">
                   <div class="card purple">
                     <div class="row justify-content-between card-top">
                       <span class="col-auto">1.25 BTC</span>
@@ -95,7 +101,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-4 d-flex justify-content-center">
                   <div class="card blue">
                     <div class="row justify-content-between card-top">
                       <span class="col-auto">0.32 LTC</span>
@@ -114,7 +120,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-12 col-md-4 d-flex justify-content-center">
                   <div class="card pink">
                     <div class="row justify-content-between card-top">
                       <span class="col-auto">1.25 ETH</span>
@@ -137,7 +143,7 @@
             </div>
           </div>
           <div class="row content-bottom">
-            <div class="col market">
+            <div class="col-12 col-xl-8 market">
               <div
                 class="
                   row
@@ -149,8 +155,68 @@
                 <h2 class="col-auto">Market is down 0.80%</h2>
                 <div class="col-auto">
                   <div class="row">
-                    <p class="col">24h</p>
-                    <p class="col-auto">Top Gainers</p>
+                    <div class="col">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-dropdown-custom dropdown-toggle"
+                          type="button"
+                          id="dropdownMenuButton1"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          24h
+                        </button>
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="dropdownMenuButton1"
+                        >
+                          <li><a class="dropdown-item" href="#">Week</a></li>
+                          <li>
+                            <a class="dropdown-item" href="#">Month</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item" href="#">All time</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-dropdown-custom dropdown-toggle"
+                          type="button"
+                          id="dropdownMenuButton1"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          Top gainers
+                        </button>
+                        <ul
+                          class="dropdown-menu"
+                          aria-labelledby="dropdownMenuButton1"
+                        >
+                          <li>
+                            <span
+                              class="dropdown-item"
+                              onclick="sortBottomGain()"
+                              >Bottom gainers</span
+                            >
+                          </li>
+                          <li>
+                            <span class="dropdown-item" onclick="sortTopPrice()"
+                              >Top price</span
+                            >
+                          </li>
+                          <li>
+                            <span
+                              class="dropdown-item"
+                              onclick="sortBottomPrice()"
+                              >Bottom price</span
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -160,27 +226,31 @@
                     <p>Name</p>
                   </div>
                 </div>
-                <div class="col"><p>Price</p></div>
-                <div class="col"><p>Change</p></div>
-                <div class="col"><p>Market Cap</p></div>
-                <div class="col"><p>Watch</p></div>
+                <div class="col-2"><p>Price</p></div>
+                <div class="col-2"><p>Change</p></div>
+                <div class="col-2 align-right"><p>Market Cap</p></div>
+                <div class="col-2 align-right"><p>Watch</p></div>
               </div>
               <div class="row align-items-center market-row">
                 <div class="col-4">
                   <div class="row market-row-name">
                     <div class="col-auto">
-                      <img src="./assets/band.png" />
+                      <img id="market-top-img" src="./assets/band.png" />
                     </div>
                     <div class="col-auto">
-                      <h6>Band Protocol</h6>
-                      <p>Band</p>
+                      <h6 id="market-top-name">Band Protocol</h6>
+                      <p id="market-top-subName">Band</p>
                     </div>
                   </div>
                 </div>
-                <div class="col market-row-price">$2.42</div>
-                <div class="col market-row-change">+13.38%</div>
-                <div class="col market-row-cap"></div>
-                <div class="col market-row-watch">
+                <div class="col-2 market-row-price" id="market-top-price">
+                  $2.42
+                </div>
+                <div class="col-2 market-row-change" id="market-top-change">
+                  +13.38%
+                </div>
+                <div class="col-2 market-row-cap"></div>
+                <div class="col-2 market-row-watch">
                   <img src="./assets/star.png" />
                 </div>
               </div>
@@ -188,18 +258,22 @@
                 <div class="col-4">
                   <div class="row market-row-name">
                     <div class="col-auto">
-                      <img src="./assets/vechain.png" />
+                      <img src="./assets/vechain.png" id="market-lower-img" />
                     </div>
                     <div class="col-auto">
-                      <h6>VeChain</h6>
-                      <p>VET</p>
+                      <h6 id="market-lower-name">VeChain</h6>
+                      <p id="market-lower-subName">VET</p>
                     </div>
                   </div>
                 </div>
-                <div class="col market-row-price">$7.48</div>
-                <div class="col market-row-change">+11.19%</div>
-                <div class="col market-row-cap"></div>
-                <div class="col market-row-watch">
+                <div class="col-2 market-row-price" id="market-lower-price">
+                  $7.48
+                </div>
+                <div class="col-2 market-row-change" id="market-lower-change">
+                  +11.19%
+                </div>
+                <div class="col-2 market-row-cap"></div>
+                <div class="col-2 market-row-watch">
                   <img src="./assets/star.png" />
                 </div>
               </div>
@@ -207,18 +281,22 @@
                 <div class="col-4">
                   <div class="row market-row-name">
                     <div class="col-auto">
-                      <img src="./assets/aave.png" />
+                      <img src="./assets/aave.png" id="market-mid-img" />
                     </div>
                     <div class="col-auto">
-                      <h6>Aave</h6>
-                      <p>AAVE</p>
+                      <h6 id="market-mid-name">Aave</h6>
+                      <p id="market-mid-subName">AAVE</p>
                     </div>
                   </div>
                 </div>
-                <div class="col market-row-price">$0.0184</div>
-                <div class="col market-row-change">+7.57%</div>
-                <div class="col market-row-cap"></div>
-                <div class="col market-row-watch">
+                <div class="col-2 market-row-price" id="market-mid-price">
+                  $0.0184
+                </div>
+                <div class="col-2 market-row-change" id="market-mid-change">
+                  +7.57%
+                </div>
+                <div class="col-2 market-row-cap"></div>
+                <div class="col-2 market-row-watch">
                   <img src="./assets/star.png" />
                 </div>
               </div>
@@ -226,27 +304,31 @@
                 <div class="col-4">
                   <div class="row market-row-name">
                     <div class="col-auto">
-                      <img src="./assets/waves.png" />
+                      <img src="./assets/waves.png" id="market-lowest-img" />
                     </div>
                     <div class="col-auto">
-                      <h6>Waves</h6>
-                      <p>Waves</p>
+                      <h6 id="market-lowest-name">Waves</h6>
+                      <p id="market-lowest-subName">Waves</p>
                     </div>
                   </div>
                 </div>
-                <div class="col market-row-price">$30.68</div>
-                <div class="col market-row-change">+6.80%</div>
-                <div class="col market-row-cap"></div>
-                <div class="col market-row-watch">
+                <div class="col-2 market-row-price" id="market-lowest-price">
+                  $30.68
+                </div>
+                <div class="col-2 market-row-change" id="market-lowest-change">
+                  +6.80%
+                </div>
+                <div class="col-2 market-row-cap"></div>
+                <div class="col-2 market-row-watch">
                   <img src="./assets/star.png" />
                 </div>
               </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-xl-4 d-flex justify-content-center">
               <div class="free">
                 <h2>
-                  Earn <img src="./assets/free.png" /> crypto with Coinview
-                  Earn!
+                  Earn <img src="./assets/free.png" /> crypto <br />
+                  with Coinview Earn!
                 </h2>
                 <p>
                   Learn about different cryptocurrencies and earn them for free!
@@ -258,5 +340,6 @@
         </div>
       </div>
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>

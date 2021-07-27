@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "prettier": "2.3.2"
+  },
+  "dependencies": {
+    "chart.js": "^3.5.0"
   }
 }
