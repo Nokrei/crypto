@@ -69,18 +69,24 @@
               <h2>Portfolio</h2>
               <div class="chart">
                 <canvas id="myChart" width="auto" height="auto"></canvas>
-                <button
-                  class="btn btn-outline-primary btn-sm"
-                  onclick="monthChart()"
-                >
-                  Month
-                </button>
-                <button
-                  class="btn btn-outline-primary btn-sm"
-                  onclick="weekChart()"
-                >
-                  Week
-                </button>
+                <div>
+                  <p id="portfolioBalance"></p>
+                  <p>Portfolio balance</p>
+                </div>
+                <div class="chart-buttons">
+                  <button
+                    class="btn btn-outline-light btn-sm"
+                    onclick="monthChart()"
+                  >
+                    Month
+                  </button>
+                  <button
+                    class="btn btn-outline-light btn-sm"
+                    onclick="weekChart()"
+                  >
+                    Week
+                  </button>
+                </div>
               </div>
             </div>
             <div class="col-12 col-xl-7">
@@ -102,7 +108,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                     </div>
-                    <p>$ 2948.04</p>
+                    <p id="balanceBtc">$ 2948.04</p>
                     <div class="row justify-content-between card-bottom">
                       <span class="col-auto">
                         <div class="crypto-img-wrap">
@@ -121,7 +127,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                     </div>
-                    <p>$ 2948.04</p>
+                    <p id="balanceLit">$ 2948.04</p>
                     <div class="row justify-content-between card-bottom">
                       <span class="col-auto">
                         <div class="crypto-img-wrap">
@@ -140,7 +146,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
                     </div>
-                    <p>$ 2948.04</p>
+                    <p id="balanceEth">$ 2948.04</p>
                     <div class="row justify-content-between card-bottom">
                       <span class="col-auto">
                         <div class="crypto-img-wrap">

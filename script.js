@@ -7,7 +7,6 @@ const monthData = [
   27652.0, 28572.0, 28662.0, 28689.0, 28790.0, 28794.0, 28792.0,
 ];
 const weekData = monthData.slice(24, 31);
-console.log(weekData);
 var myChart = new Chart(ctx, {
   type: "line",
   data: {
@@ -29,6 +28,7 @@ var myChart = new Chart(ctx, {
   options: {
     scales: {
       y: {
+        display: false,
         beginAtZero: false,
         ticks: {
           // Include a dollar sign in the ticks
@@ -36,6 +36,14 @@ var myChart = new Chart(ctx, {
             return "$" + value;
           },
         },
+      },
+      x: {
+        display: false,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
       },
     },
   },
@@ -158,3 +166,17 @@ const sortBottomGain = () => {
     })
   );
 };
+
+let balanceArr = [
+  Number(document.getElementById("balanceBtc").innerHTML.substring(1).trim()),
+  Number(document.getElementById("balanceLit").innerHTML.substring(1).trim()),
+  Number(document.getElementById("balanceEth").innerHTML.substring(1).trim()),
+];
+
+document.getElementById("portfolioBalance").innerHTML =
+  "$ " +
+  balanceArr
+    .reduce((a, b) => a + b, 0)
+    .toFixed(2)
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
