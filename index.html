@@ -38,7 +38,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <nav class="col-1 sidebar">
+        <nav class="col-12 col-xl-1 sidebar">
           <div><img src="./assets/lines.png" alt="lines" /></div>
           <ul>
             <li><img src="./assets/tabs.png" /></li>
@@ -49,7 +49,7 @@
           </ul>
           <span><i class="fas fa-sign-in-alt"></i></span>
         </nav>
-        <div class="col-11 main">
+        <div class="col-xl-11 main">
           <div class="row justify-content-between align-items-center main-top">
             <span class="col-auto">
               <h1>Overwiew</h1>
@@ -69,6 +69,18 @@
               <h2>Portfolio</h2>
               <div class="chart">
                 <canvas id="myChart" width="auto" height="auto"></canvas>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  onclick="monthChart()"
+                >
+                  Month
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-sm"
+                  onclick="weekChart()"
+                >
+                  Week
+                </button>
               </div>
             </div>
             <div class="col-12 col-xl-7">
@@ -189,12 +201,17 @@
                           data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
-                          Top gainers
+                          Sort
                         </button>
                         <ul
                           class="dropdown-menu"
                           aria-labelledby="dropdownMenuButton1"
                         >
+                          <li>
+                            <span class="dropdown-item" onclick="sortTopGain()"
+                              >Top gainers</span
+                            >
+                          </li>
                           <li>
                             <span
                               class="dropdown-item"

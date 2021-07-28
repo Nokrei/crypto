@@ -6,22 +6,23 @@ const monthData = [
   28382.0, 28482.0, 28582.0, 28682.0, 28612.0, 28782.0, 27636.0, 27602.0,
   27652.0, 28572.0, 28662.0, 28689.0, 28790.0, 28794.0, 28792.0,
 ];
-const weekData = monthData.slice(0, 7);
-let data = monthData;
-
+const weekData = monthData.slice(24, 31);
+console.log(weekData);
 var myChart = new Chart(ctx, {
   type: "line",
   data: {
-    labels: data.map((item) => {
-      return data.indexOf(item) + 1;
+    labels: monthData.map((item) => {
+      return monthData.indexOf(item) + 1;
     }),
     datasets: [
       {
         label: "Bitcoin",
-        data: data,
+        data: monthData,
         backgroundColor: "#99CAF4",
         borderColor: "#99CAF4",
         borderWidth: 1,
+        pointStyle: "circle",
+        hoverBorderWidth: 5,
       },
     ],
   },
@@ -38,14 +39,36 @@ var myChart = new Chart(ctx, {
       },
     },
   },
-  actions: {
-    name: "Remove Dataset",
-    handler(chart) {
-      chart.data.datasets.pop();
-      chart.update();
-    },
-  },
 });
+
+const weekChart = () => {
+  myChart.data.datasets.pop();
+  myChart.data.datasets.push({
+    label: "Bitcoin",
+    data: weekData,
+    backgroundColor: "#99CAF4",
+    borderColor: "#99CAF4",
+    borderWidth: 1,
+  });
+  (myChart.data.labels = weekData.map((item) => {
+    return weekData.indexOf(item) + 1;
+  })),
+    myChart.update();
+};
+const monthChart = () => {
+  myChart.data.datasets.pop();
+  myChart.data.datasets.push({
+    label: "Bitcoin",
+    data: monthData,
+    backgroundColor: "#99CAF4",
+    borderColor: "#99CAF4",
+    borderWidth: 1,
+  });
+  (myChart.data.labels = monthData.map((item) => {
+    return monthData.indexOf(item) + 1;
+  })),
+    myChart.update();
+};
 
 const marketArr = [
   {
@@ -82,7 +105,7 @@ const replaceValues = (array) => {
   document.getElementById("market-top-img").src = array[3].img;
   document.getElementById("market-lower-img").src = array[2].img;
   document.getElementById("market-mid-img").src = array[1].img;
-  document.getElementById("market-lowest-img").innerHTML = array[0].img;
+  document.getElementById("market-lowest-img").src = array[0].img;
   document.getElementById("market-top-name").innerHTML = array[3].name;
   document.getElementById("market-lower-name").innerHTML = array[2].name;
   document.getElementById("market-mid-name").innerHTML = array[1].name;
@@ -118,6 +141,13 @@ const sortBottomPrice = () => {
   replaceValues(
     marketArr.sort(function (a, b) {
       return b.price - a.price;
+    })
+  );
+};
+const sortTopGain = () => {
+  replaceValues(
+    marketArr.sort(function (a, b) {
+      return a.change - b.change;
     })
   );
 };
